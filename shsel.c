@@ -34,7 +34,7 @@ int read_shells (char* shells_path, char ***shell_name, char ***shell_cmds) {
         char *cmd  = calloc(2048, sizeof(char));
         fgets(line, 4096, shells_file);
         int elems = sscanf(line, "%s %s %[^\r\n]", user, name, cmd);
-        if(elems == 3 && strcmp(user, login_name) == 0) {
+        if(elems == 3 && strcmp(user, login_name) == 0 && line[0] != '#') {
             num_shells++;
             shell_name[0] = realloc(shell_name[0], num_shells * sizeof(char*));
             shell_cmds[0] = realloc(shell_cmds[0], num_shells * sizeof(char*));
@@ -83,6 +83,11 @@ int main (int argc, char** argv) {
     char **shell_name  = 0;
     char **shell_cmds  = 0;
     num_shells = read_shells(shells_path, &shell_name, &shell_cmds);
+
+    if(num_shells == 0) {
+        printf("no shells for you -- go away\n");
+        exit(1);
+    }
 
     printf("available shells:\n");
     for(ii = 0; ii < num_shells; ii++) {

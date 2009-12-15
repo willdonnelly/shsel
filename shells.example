@@ -1,0 +1,18 @@
+# shells.example
+#
+# each line in the 'shells' file can must contain three
+#   entries: a user name, a shell name, and a command to
+#   execute
+#
+# entries can be specified in any order, but the first
+#   entry for each user will be used as the default
+#
+
+fred bash  /bin/bash
+fred zsh   /bin/zsh
+
+greg bash  /bin/bash
+greg irssi /usr/bin/irssi --nick gman
+
+will bash  /bin/bash
+will dtach /usr/bin/dtach -A bash bash
