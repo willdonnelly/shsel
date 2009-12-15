@@ -78,11 +78,10 @@ int read_choice (int num_shells) {
 
 int main (int argc, char** argv) {
     int ii;
-    char  *shells_path = "/home/will/projects/shsel/shells";
     int    num_shells  = 0;
     char **shell_name  = 0;
     char **shell_cmds  = 0;
-    num_shells = read_shells(shells_path, &shell_name, &shell_cmds);
+    num_shells = read_shells("/etc/shsel", &shell_name, &shell_cmds);
 
     if(num_shells == 0) {
         printf("no shells for you -- go away\n");
