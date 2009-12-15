@@ -1,0 +1,21 @@
+shsel - runtime shell chooser
+=============================
+
+shsel is a small program written to fulfill a very specific goal.
+if you need to allow choice between multiple different commands
+when a user logs in, without giving them a full shell right away,
+shsel will help you. otherwise, it's probably not what you need.
+
+when a user's login shell is set to shsel, they will be greeted
+with a list of choices on login:
+
+    available shells:
+       0 - bash
+       1 - zsh
+       2 - dtach
+       3 - irssi
+    select shell [0]:
+
+and that's all they're given. if a program isn't in the list,
+they can't run it, so if they aren't offered an interactive
+shell, there's no way for them to get one.
